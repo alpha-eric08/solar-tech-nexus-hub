@@ -1,30 +1,14 @@
+
 import { useState } from "react";
 import Layout from "@/components/layout/Layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
-  Smartphone,
-  Laptop,
-  Monitor,
-  Headphones,
-  Camera,
-  Speaker,
-  Watch,
-  Gamepad2,
-  Tablet,
-  Tv,
-  Printer,
-  HardDrive,
-  Cpu,
-  Battery,
-  Wifi,
-  Router,
-  Cable,
   Wrench,
   CheckCircle
 } from "lucide-react";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 
 type Service = {
   id: number;
@@ -48,7 +32,7 @@ const services: Service[] = [
     id: 2,
     name: "Data Recovery",
     description: "Recover your lost data from any device.",
-    icon: HardDrive,
+    icon: Wrench,
     price: 100,
     features: ["Hard drive recovery", "SSD recovery", "USB recovery"],
   },
@@ -56,7 +40,7 @@ const services: Service[] = [
     id: 3,
     name: "Network Setup",
     description: "Set up your home or office network.",
-    icon: Router,
+    icon: Wrench,
     price: 80,
     features: ["Router setup", "Wifi configuration", "Network security"],
   },
@@ -64,7 +48,7 @@ const services: Service[] = [
     id: 4,
     name: "Software Installation",
     description: "Install any software on your device.",
-    icon: Cpu,
+    icon: Wrench,
     price: 30,
     features: ["Operating system installation", "Application installation"],
   },
@@ -72,7 +56,7 @@ const services: Service[] = [
     id: 5,
     name: "Virus Removal",
     description: "Remove viruses and malware from your device.",
-    icon: Battery,
+    icon: Wrench,
     price: 40,
     features: ["Virus scan", "Malware removal", "System cleanup"],
   },
@@ -80,7 +64,7 @@ const services: Service[] = [
     id: 6,
     name: "Smart Home Setup",
     description: "Set up your smart home devices.",
-    icon: Wifi,
+    icon: Wrench,
     price: 120,
     features: ["Smart device installation", "Smart device configuration"],
   },
@@ -141,7 +125,7 @@ const Services = () => {
           <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
               <Card key={service.id}>
-                <CardContent className="flex flex-col gap-4">
+                <CardContent className="flex flex-col gap-4 p-6">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <service.icon className="size-5" />
